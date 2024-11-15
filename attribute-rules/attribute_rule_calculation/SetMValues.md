@@ -1,6 +1,7 @@
 # Calculate M values of a line using vertex distance
 
 This calculation calculates the measures of every segment of a line and updates the M values of the segments.
+Added code to handle multipart to mimic the Set M as Distance operation.
 
 
 ## Use cases
@@ -35,6 +36,10 @@ var prev_coords = paths[0][0]
 
 for (var pathIndx in paths)
  {
+  //if new part then set prevCoords to current coord of current part, assuming values are [partIndex][vertexIndex]
+  //this mimics the behaviour of the Set M as Distance in Pro
+  var prev_coords = paths[pathIndx][0]
+
   var path = paths[pathIndx]
   for (var vertIndx in path)
     {
